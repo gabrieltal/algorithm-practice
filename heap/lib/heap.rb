@@ -13,7 +13,8 @@ class BinaryMinHeap
 
   def extract
     @count -= 1
-    el = @store.shift()
+    @store[0], @store[-1] = @store[-1], @store[0]
+    el = @store.pop()
     BinaryMinHeap.heapify_down(@store, 0)
     el
   end
